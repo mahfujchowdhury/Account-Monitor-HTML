@@ -34,11 +34,7 @@
           <div class="sb-btn" data-tab="history">History</div>
           <div class="sb-btn" data-tab="risk">Risk</div>
           <div class="sb-btn" data-tab="signals">Signals</div>
-          <div class="sb-btn" data-tab="correlation">Correlation</div>
           <div class="sb-btn" data-tab="news">News</div>
-          <div class="sb-btn" data-tab="performance">Analysis</div>
-          <div class="sb-btn" data-tab="aiagent">AI Agent</div>
-          <div class="sb-btn" data-tab="algorithm">Algorithm</div>
           <div class="sb-btn" data-tab="settings">Settings</div>
         </div>
 
@@ -92,21 +88,13 @@
 
               <div class="chart-sessions">
                 <div class="mini-chart-area">
-                  <div class="mini-chart-header"
-                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <div class="mini-chart-title" id="miniChartTitle" style="margin-bottom: 0;">15-Trade Performance
-                      Sequence</div>
-                    <label class="switch-container"
-                      style="display: flex; align-items: center; gap: 6px; cursor: pointer; user-select: none;">
-                      <span id="toggleChartLabel"
-                        style="font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Equity
-                        Curve</span>
+                  <div class="mini-chart-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <div class="mini-chart-title" id="miniChartTitle" style="margin-bottom: 0;">15-Trade Performance Sequence</div>
+                    <label class="switch-container" style="display: flex; align-items: center; gap: 6px; cursor: pointer; user-select: none;">
+                      <span id="toggleChartLabel" style="font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Equity Curve</span>
                       <input type="checkbox" id="toggleChart" style="display:none;" />
-                      <div class="switch-slider"
-                        style="width: 28px; height: 16px; background: var(--border-lit); border-radius: 8px; position: relative; transition: background 0.2s;">
-                        <div class="switch-knob"
-                          style="width: 12px; height: 12px; background: var(--text-dim); border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: transform 0.2s;">
-                        </div>
+                      <div class="switch-slider" style="width: 28px; height: 16px; background: var(--border-lit); border-radius: 8px; position: relative; transition: background 0.2s;">
+                        <div class="switch-knob" style="width: 12px; height: 12px; background: var(--text-dim); border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: transform 0.2s;"></div>
                       </div>
                     </label>
                   </div>
@@ -194,8 +182,7 @@
                 <div class="sum-item">Open Positions: <span id="pos-summary-count">0</span></div>
                 <div class="sum-item">Total Lots: <span id="pos-summary-lots">0.00</span></div>
                 <div class="sum-item">Floating P&amp;L: <span id="pos-summary-pnl" class="pos">$0.00</span></div>
-                <div class="sum-item">Unprotected: <span id="pos-summary-unprotected"
-                    style="color:var(--yellow);">0</span></div>
+                <div class="sum-item">Unprotected: <span id="pos-summary-unprotected" style="color:var(--yellow);">0</span></div>
               </div>
             </div>
           </div>
@@ -455,7 +442,6 @@
               <div class="risk-calc-card">
                 <div class="risk-section-title">⚡ Position Size Calculator</div>
                 <div class="calc-rows">
-                  <!-- Row 1: Account Type | Account Value | Instrument Type | Entry Price -->
                   <div class="calc-row line-1">
                     <div class="calc-group">
                       <label class="calc-label">Account Type</label>
@@ -466,31 +452,6 @@
                       <label class="calc-label">Account Value ($)</label>
                       <input class="calc-input" id="calcAccountValue" type="number" value="1043.95" step="0.01"
                         min="0" />
-                    </div>
-                    <div class="calc-group">
-                      <label class="calc-label">Instrument Type</label>
-                      <select class="calc-input calc-select" id="calcInstrument">
-                        <option value="forex">Forex</option>
-                        <option value="jpy">JPY Pairs</option>
-                        <option value="gold">XAU/USD</option>
-                        <option value="silver">XAG/USD</option>
-                        <option value="bitcoin">BTC/USD</option>
-                        <option value="indices">Indices</option>
-                        <option value="oil">Crude Oil</option>
-                      </select>
-                    </div>
-                    <div class="calc-group">
-                      <label class="calc-label">Entry Price</label>
-                      <input class="calc-input" id="calcEntryPrice" type="number" value="1.10000" step="0.00001"
-                        min="0" />
-                    </div>
-                  </div>
-
-                  <!-- Row 2: Risk Type | Risk Amount | Stop Loss Price | Take Profit Price -->
-                  <div class="calc-row line-2">
-                    <div class="calc-group">
-                      <label class="calc-label">Risk Type</label>
-                      <button class="type-btn type-btn-single active" id="calcRiskType" data-index="0">%</button>
                     </div>
                     <div class="calc-group">
                       <label class="calc-label">Risk Amount</label>
@@ -504,19 +465,27 @@
                         </div>
                       </div>
                     </div>
+                  </div>
+
+                  <div class="calc-row line-2">
                     <div class="calc-group">
-                      <label class="calc-label">Stop Loss Price</label>
-                      <input class="calc-input" id="calcSLPrice" type="number" value="1.09900" step="0.00001" min="0" />
-                      <div class="pip-hint" id="slPipsHint">= 0.0 pips</div>
+                      <label class="calc-label">Risk Type</label>
+                      <button class="type-btn type-btn-single active" id="calcRiskType" data-index="0">%</button>
                     </div>
                     <div class="calc-group">
-                      <label class="calc-label">Take Profit Price</label>
-                      <input class="calc-input" id="calcTPPrice" type="number" value="1.10200" step="0.00001" min="0" />
-                      <div class="pip-hint" id="tpPipsHint">= 0.0 pips</div>
+                      <label class="calc-label">Stop Loss (Pips)</label>
+                      <input class="calc-input" id="calcSLPips" type="number" value="20" step="1" min="1" />
+                    </div>
+                    <div class="calc-group">
+                      <label class="calc-label">Stop Loss (Pips)</label>
+                      <input class="calc-input" id="calcSLPips2" type="number" value="20" step="1" min="1" />
+                    </div>
+                    <div class="calc-group">
+                      <label class="calc-label">Take Profit (Pips)</label>
+                      <input class="calc-input" id="calcTPPips" type="number" value="40" step="1" min="1" />
                     </div>
                   </div>
 
-                  <!-- Row 3: Commission Type | Commission | Lot Size | Max PS -->
                   <div class="calc-row line-3">
                     <div class="calc-group">
                       <label class="calc-label">Commission Type</label>
@@ -532,8 +501,8 @@
                     </div>
                     <div class="calc-group">
                       <label class="calc-label">Max PS</label>
-                      <input class="calc-input" id="calcMaxPS" type="text" value="0.00" readonly
-                        style="background: rgba(61,142,240,0.1); cursor: not-allowed;" />
+                      <input class="calc-input" id="calcMaxPS" type="number" placeholder="e.g. 1.00" step="0.01"
+                        min="0.01" />
                     </div>
                   </div>
                 </div>
@@ -690,14 +659,10 @@
                     </tbody>
                   </table>
                   <div class="exposure-summary">
-                    <div class="exp-sum-item"><span>Total Protected:</span><span id="expo-summary-protected"
-                        class="rm-pos">0 / 0</span></div>
-                    <div class="exp-sum-item"><span>Total At Risk:</span><span id="expo-summary-risk"
-                        class="rm-neg">$0.00</span></div>
-                    <div class="exp-sum-item"><span>Unprotected Positions:</span><span id="expo-summary-unprotected"
-                        style="color:var(--yellow)">0</span></div>
-                    <div class="exp-sum-item"><span>Avg R:R (protected):</span><span id="expo-summary-rr"
-                        class="rm-pos">—</span></div>
+                    <div class="exp-sum-item"><span>Total Protected:</span><span id="expo-summary-protected" class="rm-pos">0 / 0</span></div>
+                    <div class="exp-sum-item"><span>Total At Risk:</span><span id="expo-summary-risk" class="rm-neg">$0.00</span></div>
+                    <div class="exp-sum-item"><span>Unprotected Positions:</span><span id="expo-summary-unprotected" style="color:var(--yellow)">0</span></div>
+                    <div class="exp-sum-item"><span>Avg R:R (protected):</span><span id="expo-summary-rr" class="rm-pos">—</span></div>
                   </div>
                 </div>
               </div>
@@ -708,199 +673,111 @@
           <!-- ===== SIGNALS TAB ===== -->
           <div class="tab-content" id="tab-signals">
             <div class="sig-content">
+              <div class="rt-heading">Real-Time Technical Indicators</div>
 
-              <!-- Toolbar: symbol selector + active symbol label -->
-              <div class="sig-toolbar">
-                <div class="sig-symbol-info">
-                  <span class="sig-symbol-name" id="sigSymbolName">XAUUSDm</span>
-                  <span class="sig-symbol-label" id="sigSymbolLabel">Gold vs US Dollar · H1</span>
-                </div>
-                <div class="sig-symbol-row" id="sigSymbolRow">
-                  <!-- Symbol pills injected by signals.js -->
-                </div>
+              <!-- Timeframe buttons -->
+              <div class="tf-row">
+                <div class="tf-btn">M1</div>
+                <div class="tf-btn">M5</div>
+                <div class="tf-btn">M15</div>
+                <div class="tf-btn active">H1</div>
+                <div class="tf-btn">H4</div>
+                <div class="tf-btn">D1</div>
               </div>
 
-              <!-- Timeframe selector -->
-              <div class="sig-tf-bar">
-                <span class="sig-tf-label">Timeframe</span>
-                <div class="tf-row" id="sigTfRow">
-                  <div class="tf-btn" data-tf="M1">M1</div>
-                  <div class="tf-btn" data-tf="M5">M5</div>
-                  <div class="tf-btn" data-tf="M15">M15</div>
-                  <div class="tf-btn active" data-tf="H1">H1</div>
-                  <div class="tf-btn" data-tf="H4">H4</div>
-                  <div class="tf-btn" data-tf="D1">D1</div>
+              <!-- Moving Averages -->
+              <div class="ind-block">
+                <div class="ind-header">
+                  <span class="ind-name">Moving Averages (EMA 20/50)</span>
+                  <span class="sig-badge badge-sell">SELL</span>
                 </div>
-              </div>
-
-              <!-- Market Direction banner -->
-              <div class="sig-direction-card">
-                <div class="sig-gauge-col">
-                  <div class="gauge-container">
-                    <div class="gauge-wrap">
-                      <svg class="gauge-svg" viewBox="0 0 100 50">
-                        <path class="gauge-bg-arc" d="M 10 50 A 40 40 0 0 1 90 50" fill="none"
-                          stroke="var(--border-lit)" stroke-width="7" stroke-linecap="round"></path>
-                        <path class="gauge-buy-arc" d="M 10 50 A 40 40 0 0 1 36.6 21.3" fill="none"
-                          stroke="var(--green)" stroke-width="7"></path>
-                        <path class="gauge-neut-arc" d="M 36.6 21.3 A 40 40 0 0 1 63.4 21.3" fill="none"
-                          stroke="var(--yellow)" stroke-width="7"></path>
-                        <path class="gauge-sell-arc" d="M 63.4 21.3 A 40 40 0 0 1 90 50" fill="none" stroke="var(--red)"
-                          stroke-width="7"></path>
-                      </svg>
-                      <div class="gauge-needle" id="sigNeedle"></div>
-                      <div class="gauge-center-dot"></div>
-                    </div>
-                    <div class="gauge-labels">
-                      <span>BUY</span>
-                      <span>NEUTRAL</span>
-                      <span>SELL</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="sig-dir-info">
-                  <div class="sig-dir-head">Market Direction</div>
-                  <div class="comp-direction" id="sigDirection">—</div>
-                  <div class="sig-conf-row">
-                    <span class="sig-conf-label">Signal Confidence</span>
-                    <span class="sig-conf-val" id="sigConfVal">0%</span>
-                  </div>
-                  <div class="dd-track">
-                    <div class="dd-fill dd-fill-safe" id="sigConfFill" style="width:0%"></div>
-                  </div>
-                  <div class="sig-mini-badges" id="sigMiniBadges">
-                    <!-- 4 category mini badges injected by signals.js -->
+                <div class="ind-desc">Bearish Crossover — price below both EMAs</div>
+                <div class="str-row">
+                  <span class="str-label">Strong</span>
+                  <div class="str-track">
+                    <div class="str-fill" style="width:82%;"></div>
                   </div>
                 </div>
               </div>
+              <hr class="ind-divider">
 
-              <!-- Four indicator-category cards -->
-              <div class="sig-cat-grid">
-                <div class="sig-cat-card">
-                  <div class="sig-cat-head">
-                    <span class="sig-cat-name">📈 Trend</span>
-                    <span class="summary-badge" id="catBadge-trend">—</span>
-                  </div>
-                  <table class="ind-table sig-cat-table">
-                    <tbody id="cat-trend"><!-- filled by signals.js --></tbody>
-                  </table>
+              <!-- RSI -->
+              <div class="ind-block">
+                <div class="ind-header">
+                  <span class="ind-name">RSI (14)</span>
+                  <span class="sig-badge badge-neutral">NEUTRAL</span>
                 </div>
-
-                <div class="sig-cat-card">
-                  <div class="sig-cat-head">
-                    <span class="sig-cat-name">⚡ Momentum</span>
-                    <span class="summary-badge" id="catBadge-momentum">—</span>
+                <div class="ind-desc">RSI: 37.70 — approaching oversold zone</div>
+                <div class="str-row">
+                  <span class="str-label">Moderate</span>
+                  <div class="str-track">
+                    <div class="str-fill" style="width:52%;"></div>
                   </div>
-                  <table class="ind-table sig-cat-table">
-                    <tbody id="cat-momentum"><!-- filled by signals.js --></tbody>
-                  </table>
                 </div>
+              </div>
+              <hr class="ind-divider">
 
-                <div class="sig-cat-card">
-                  <div class="sig-cat-head">
-                    <span class="sig-cat-name">🌊 Volatility / Volume</span>
-                    <span class="summary-badge" id="catBadge-volatility">—</span>
-                  </div>
-                  <table class="ind-table sig-cat-table">
-                    <tbody id="cat-volatility"><!-- filled by signals.js --></tbody>
-                  </table>
+              <!-- MACD -->
+              <div class="ind-block">
+                <div class="ind-header">
+                  <span class="ind-name">MACD Oscillator (12/26/9)</span>
+                  <span class="sig-badge badge-sell">SELL</span>
                 </div>
-
-                <div class="sig-cat-card">
-                  <div class="sig-cat-head">
-                    <span class="sig-cat-name">🏛 S&amp;R Structure</span>
-                    <span class="summary-badge" id="catBadge-structure">—</span>
+                <div class="ind-desc">Bearish Divergence — histogram declining</div>
+                <div class="str-row">
+                  <span class="str-label">Strong</span>
+                  <div class="str-track">
+                    <div class="str-fill" style="width:78%;"></div>
                   </div>
-                  <table class="ind-table sig-cat-table">
-                    <tbody id="cat-structure"><!-- filled by signals.js --></tbody>
-                  </table>
+                </div>
+              </div>
+              <hr class="ind-divider">
+
+              <!-- Bollinger Bands -->
+              <div class="ind-block">
+                <div class="ind-header">
+                  <span class="ind-name">Bollinger Bands (20,2)</span>
+                  <span class="sig-badge badge-sell">SELL</span>
+                </div>
+                <div class="ind-desc">Price near lower band — breakdown risk</div>
+                <div class="str-row">
+                  <span class="str-label">Moderate</span>
+                  <div class="str-track">
+                    <div class="str-fill" style="width:58%;"></div>
+                  </div>
+                </div>
+              </div>
+              <hr class="ind-divider">
+
+              <!-- Stochastic -->
+              <div class="ind-block">
+                <div class="ind-header">
+                  <span class="ind-name">Stochastic (5,3,3)</span>
+                  <span class="sig-badge badge-neutral">NEUTRAL</span>
+                </div>
+                <div class="ind-desc">%K: 28.4 — oversold, watching for cross</div>
+                <div class="str-row">
+                  <span class="str-label">Weak</span>
+                  <div class="str-track">
+                    <div class="str-fill" style="width:28%;"></div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Multi-Timeframe Confluence Matrix -->
-              <div class="sig-matrix-card">
-                <div class="sig-card-title">Multi-Timeframe Confluence</div>
-                <div class="matrix-table-wrap">
-                  <table class="matrix-table">
-                    <thead>
-                      <tr>
-                        <th>Timeframe</th>
-                        <th>Trend</th>
-                        <th>Momentum</th>
-                        <th>Vol / Volume</th>
-                        <th>S&amp;R</th>
-                        <th>Overall</th>
-                      </tr>
-                    </thead>
-                    <tbody id="sigMatrixBody">
-                      <!-- filled by signals.js -->
-                    </tbody>
-                  </table>
+              <!-- Composite -->
+              <div class="composite-box">
+                <div class="comp-label">Composite Strategy Direction</div>
+                <div class="comp-direction">DISTRIBUTE (SELL)</div>
+                <div class="comp-track">
+                  <div class="comp-fill" style="width:72%;"></div>
                 </div>
+                <div class="comp-ticks"><span>Buy</span><span>Neutral</span><span>Sell</span></div>
               </div>
 
               <!-- Disclaimer -->
               <div class="disclaimer">Multi-timeframe advisory signals are compiled based on mathematical formulas.
                 Always verify with your own analysis before placing trades. These signals are for informational purposes
                 only.</div>
-            </div>
-          </div>
-
-          <!-- ===== CORRELATION TAB ===== -->
-          <div class="tab-content" id="tab-correlation">
-            <div class="cor-content">
-              <div class="cor-toolbar">
-                <div class="cor-title-wrap">
-                  <div class="cor-title">Correlation Matrix</div>
-                  <div class="cor-sub">Relationships between core symbols across the selected timeframe.</div>
-                </div>
-                <div class="cor-tf-row" id="corTfRow">
-                  <div class="tf-btn" data-cor-tf="M15">M15</div>
-                  <div class="tf-btn active" data-cor-tf="H1">H1</div>
-                  <div class="tf-btn" data-cor-tf="H4">H4</div>
-                  <div class="tf-btn" data-cor-tf="D1">D1</div>
-                </div>
-              </div>
-
-              <div class="cor-grid">
-                <div class="cor-card">
-                  <div class="cor-card-head">
-                    <div class="cor-card-title">Pair Matrix</div>
-                    <div class="cor-pill" id="corTfLabel">H1</div>
-                  </div>
-                  <div class="cor-table-wrap">
-                    <div id="corMatrixGrid" class="cor-matrix-grid"></div>
-                  </div>
-                </div>
-
-                <div class="cor-card notable-correlations-card">
-                  <div class="cor-card-head">
-                    <div class="cor-card-title">Notable Correlations</div>
-                  </div>
-
-                  <!-- Strongest Positive -->
-                  <div class="notable-section">
-                    <div class="notable-section-header">
-                      <span class="notable-section-indicator positive"></span>
-                      <span class="notable-section-title">Strongest Positive Correlations</span>
-                    </div>
-                    <div class="notable-list" id="corPositiveList"></div>
-                  </div>
-
-                  <!-- Strongest Negative -->
-                  <div class="notable-section">
-                    <div class="notable-section-header">
-                      <span class="notable-section-indicator negative"></span>
-                      <span class="notable-section-title">Strongest Negative Correlations</span>
-                    </div>
-                    <div class="notable-list" id="corNegativeList"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="cor-footnote">Positive values move together. Negative values can offset each other. Use this
-                with position sizing and exposure, not as a standalone entry signal.</div>
             </div>
           </div>
 
@@ -1246,406 +1123,6 @@
             </div>
           </div>
 
-          <!-- ===== PERFORMANCE TAB ===== -->
-          <div class="tab-content" id="tab-performance">
-            <div class="pf-root">
-
-              <!-- Sub-tab strip -->
-              <div class="pf-tab-strip">
-                <div class="pf-tab active" data-pftab="dashboard">Performance</div>
-                <div class="pf-tab" data-pftab="calendar">Calendar</div>
-                <div class="pf-tab" data-pftab="journal">Journal</div>
-              </div>
-
-              <!-- ── Dashboard sub-tab ── -->
-              <div class="pf-pane active" id="pf-dashboard">
-                <div class="pf-scroll">
-
-                  <!-- KPIs -->
-                  <div class="pf-kpi-row">
-                    <div class="pf-kpi c1">
-                      <div class="pf-kpi-lbl">Total P&amp;L</div>
-                      <div class="pf-kpi-val pos">+$1,061</div>
-                      <div class="pf-kpi-sub">16 closed trades</div>
-                    </div>
-                    <div class="pf-kpi c2">
-                      <div class="pf-kpi-lbl">Win Rate</div>
-                      <div class="pf-kpi-val neu">68.5%</div>
-                      <div class="pf-kpi-sub">11W · 5L</div>
-                    </div>
-                    <div class="pf-kpi c3">
-                      <div class="pf-kpi-lbl">Profit Factor</div>
-                      <div class="pf-kpi-val neu">2.14</div>
-                      <div class="pf-kpi-sub">Above 1.5 is good</div>
-                    </div>
-                    <div class="pf-kpi c4">
-                      <div class="pf-kpi-lbl">Expectancy</div>
-                      <div class="pf-kpi-val pos">$38.40</div>
-                      <div class="pf-kpi-sub">Per trade avg</div>
-                    </div>
-                  </div>
-
-                  <!-- Secondary stats -->
-                  <div class="pf-kpi-row">
-                    <div class="pf-kpi c2">
-                      <div class="pf-kpi-lbl">Best Trade</div>
-                      <div class="pf-kpi-val pos">+$320</div>
-                      <div class="pf-kpi-sub">Largest winner</div>
-                    </div>
-                    <div class="pf-kpi c4">
-                      <div class="pf-kpi-lbl">Worst Trade</div>
-                      <div class="pf-kpi-val neg">-$175</div>
-                      <div class="pf-kpi-sub">Largest loser</div>
-                    </div>
-                    <div class="pf-kpi c1">
-                      <div class="pf-kpi-lbl">Win / Loss Streak</div>
-                      <div class="pf-kpi-val neu">4 <span style="color:var(--muted);font-size:13px">/</span> 2</div>
-                      <div class="pf-kpi-sub">Best run · current</div>
-                    </div>
-                    <div class="pf-kpi c3">
-                      <div class="pf-kpi-lbl">Max Drawdown</div>
-                      <div class="pf-kpi-val neg">-3.2%</div>
-                      <div class="pf-kpi-sub">Peak to trough</div>
-                    </div>
-                  </div>
-
-                  <!-- Trade Performance -->
-                  <div class="pf-eq-wrap">
-                    <div class="pf-eq-header">
-                      <div class="pf-eq-title">Trade Performance</div>
-                      <div class="pf-eq-toggle">
-                        <button class="pf-eq-btn active" data-eqview="bars">Bars</button>
-                        <button class="pf-eq-btn" data-eqview="line">Line</button>
-                      </div>
-                    </div>
-                    <canvas id="pf-eq-canvas"></canvas>
-                  </div>
-
-                  <!-- Donut + Day Performance -->
-                  <div class="pf-charts-row">
-                    <div class="pf-chart-card">
-                      <div class="pf-chart-title">Win / Loss Split</div>
-                      <div class="pf-donut-wrap">
-                        <canvas id="pf-donut-canvas" width="80" height="80"></canvas>
-                        <div class="pf-donut-legend">
-                          <div class="pf-leg-row">
-                            <div class="pf-leg-dot" style="background:var(--accent)"></div>Winners &nbsp;<b>11
-                              (68.5%)</b>
-                          </div>
-                          <div class="pf-leg-row">
-                            <div class="pf-leg-dot" style="background:var(--red)"></div>Losers &nbsp;&nbsp;<b>5
-                              (31.5%)</b>
-                          </div>
-                          <div class="pf-leg-row">
-                            <div class="pf-leg-dot" style="background:var(--yellow)"></div>Breakeven <b>0</b>
-                          </div>
-                          <div class="pf-donut-avg">Avg Win: <b style="color:var(--accent)">$136</b> &nbsp; Avg Loss: <b
-                              style="color:var(--red)">-$72</b></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="pf-chart-card">
-                      <div class="pf-chart-title">Day Performance</div>
-                      <div id="pf-day-perf"></div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <!-- ── Calendar sub-tab ── -->
-              <div class="pf-pane" id="pf-calendar">
-                <div class="pf-cal-wrap">
-
-                  <!-- Period summary (recomputed per displayed month) -->
-                  <div class="pf-cal-summary">
-                    <div class="pf-jsm-item">
-                      <div class="pf-jsm-lbl">Total P&amp;L</div>
-                      <div class="pf-jsm-val neu" id="pf-cal-pnl">$0</div>
-                    </div>
-                    <div class="pf-jsm-item">
-                      <div class="pf-jsm-lbl">Win Rate</div>
-                      <div class="pf-jsm-val neu" id="pf-cal-winrate">0%</div>
-                    </div>
-                    <div class="pf-jsm-item">
-                      <div class="pf-jsm-lbl">Max Drawdown</div>
-                      <div class="pf-jsm-val neu" id="pf-cal-dd">$0</div>
-                    </div>
-                    <div class="pf-jsm-item">
-                      <div class="pf-jsm-lbl">Total Trades</div>
-                      <div class="pf-jsm-val neu" id="pf-cal-trades">0</div>
-                    </div>
-                  </div>
-
-                  <div class="pf-cal-toolbar">
-                    <div class="pf-cal-sub-tabs">
-                      <button class="pf-cal-sub-btn active" data-calview="monthly">Monthly</button>
-                      <button class="pf-cal-sub-btn" data-calview="daily">Daily</button>
-                    </div>
-                    <div class="pf-cal-nav-row">
-                      <button class="pf-cal-nav-btn" id="pf-cal-prev">&#8249;</button>
-                      <div class="pf-cal-month-lbl" id="pf-cal-lbl">June 2026</div>
-                      <button class="pf-cal-nav-btn" id="pf-cal-next">&#8250;</button>
-                    </div>
-                  </div>
-
-                  <div id="pf-monthly-view">
-                    <div class="pf-cal-grid" id="pf-cal-grid"></div>
-                    <div class="pf-cal-legend">
-                      <div class="pf-cleg">
-                        <div class="pf-cleg-dot" style="background:var(--green)"></div>Profitable
-                      </div>
-                      <div class="pf-cleg">
-                        <div class="pf-cleg-dot" style="background:var(--red)"></div>Losing
-                      </div>
-                      <div class="pf-cleg">
-                        <div class="pf-cleg-dot" style="background:var(--muted)"></div>No Trades
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="pf-daily-view" id="pf-daily-view">
-                    <div class="pf-sess-cards" id="pf-sess-cards"></div>
-                    <div class="pf-hourmap-wrap">
-                      <div class="pf-hourmap-head">
-                        <span class="pf-hourmap-title">Hour Heatmap</span>
-                        <div class="pf-hourmap-legend">
-                          <span class="pf-cleg"><span class="pf-cleg-dot"
-                              style="background:var(--green)"></span>Profit</span>
-                          <span class="pf-cleg"><span class="pf-cleg-dot"
-                              style="background:var(--red)"></span>Loss</span>
-                          <span class="pf-cleg"><span class="pf-cleg-dot" style="background:var(--card)"></span>No
-                            Trades</span>
-                        </div>
-                      </div>
-                      <div class="pf-hourmap" id="pf-hourmap"></div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <!-- ── Journal sub-tab ── -->
-              <div class="pf-pane" id="pf-journal">
-                <div class="pf-jr">
-
-                  <!-- Left: trade list -->
-                  <div class="pf-jr-list">
-                    <div class="pf-jr-list-head">
-                      <span class="pf-jr-title">Trade Journal</span>
-                      <label class="pf-jr-live">
-                        Live
-                        <input type="checkbox" id="pf-jr-live-toggle" style="display:none;" />
-                        <span class="pf-jr-switch"><span class="pf-jr-knob"></span></span>
-                      </label>
-                      <span class="pf-jr-count" id="pf-jr-count">0 entries</span>
-                    </div>
-                    <div class="pf-jr-filters">
-                      <button class="pf-jr-fbtn active" data-jrfilter="all">All <b id="pf-jr-c-all">0</b></button>
-                      <button class="pf-jr-fbtn" data-jrfilter="journaled">Journaled <b
-                          id="pf-jr-c-journaled">0</b></button>
-                      <button class="pf-jr-fbtn" data-jrfilter="pending">Pending <b id="pf-jr-c-pending">0</b></button>
-                    </div>
-                    <div class="pf-jr-cards" id="pf-jr-cards"></div>
-                  </div>
-
-                  <!-- Right: trade detail -->
-                  <div class="pf-jr-detail" id="pf-jr-detail"></div>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- ===== AI AGENT TAB ===== -->
-          <div class="tab-content" id="tab-aiagent">
-            <div class="ai-root">
-
-              <!-- Click-away backdrop for the slide-in menu -->
-              <div class="ai-backdrop" id="ai-backdrop"></div>
-
-              <!-- History sidebar (slide-in menu) -->
-              <div class="ai-sidebar">
-                <button class="ai-new-btn" id="ai-new"><span>&#43;</span> New chat</button>
-                <div class="ai-search">
-                  <span class="ai-search-ic">&#128269;</span>
-                  <input class="ai-search-input" id="ai-search-input" type="text" placeholder="Search chats…" />
-                </div>
-                <div class="ai-hist-label">History</div>
-                <div class="ai-hist" id="ai-hist"></div>
-              </div>
-
-              <!-- Chat main -->
-              <div class="ai-main">
-
-                <!-- Header -->
-                <div class="ai-head">
-                  <button class="ai-menu-btn" id="ai-menu-btn" title="Menu" aria-label="Toggle chat menu">
-                    <span></span><span></span><span></span>
-                  </button>
-                  <div class="ai-head-avatar">&#129302;</div>
-                  <div class="ai-head-info">
-                    <div class="ai-head-title">AI Assistant</div>
-                    <div class="ai-head-sub"><span class="ai-status-dot"></span> Online · Account-aware</div>
-                  </div>
-                  <button class="ai-clear-btn" id="ai-clear" title="Clear current conversation">Clear</button>
-                </div>
-
-                <!-- Message thread -->
-                <div class="ai-thread" id="ai-thread"></div>
-
-                <!-- Quick prompts -->
-                <div class="ai-chips" id="ai-chips">
-                  <button class="ai-chip" data-prompt="Analyze my open positions">Analyze my positions</button>
-                  <button class="ai-chip" data-prompt="What is my current risk?">What's my risk?</button>
-                  <button class="ai-chip" data-prompt="How is my performance today?">Today's performance</button>
-                  <button class="ai-chip" data-prompt="Any upcoming high-impact news?">Upcoming news</button>
-                </div>
-
-                <!-- Composer -->
-                <div class="ai-composer">
-                  <textarea class="ai-input" id="ai-input" rows="1"
-                    placeholder="Ask about your account, positions, risk…"></textarea>
-                  <button class="ai-send" id="ai-send" title="Send">&#10148;</button>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-
-          <!-- ===== ALGORITHM TAB ===== -->
-          <div class="tab-content" id="tab-algorithm">
-            <div class="algo-content">
-
-              <!-- KPI Strip -->
-              <div class="algo-kpi-grid">
-                <div class="metric-card">
-                  <div class="metric-label">Active EAs</div>
-                  <div class="metric-val" id="algoActiveCount">0 / 0</div>
-                </div>
-                <div class="metric-card">
-                  <div class="metric-label">Algo Net P&amp;L (Today)</div>
-                  <div class="metric-val green" id="algoTodayPnl">+$0.00</div>
-                </div>
-                <div class="metric-card">
-                  <div class="metric-label">Algo Total P&amp;L</div>
-                  <div class="metric-val green" id="algoTotalPnl">+$0.00</div>
-                </div>
-                <div class="metric-card">
-                  <div class="metric-label">Account Risk Used</div>
-                  <div class="metric-val" id="algoRiskUsed">0.00%</div>
-                </div>
-                <div class="metric-card">
-                  <div class="metric-label">Aggregate Win Rate</div>
-                  <div class="metric-val" id="algoWinRate">0.0%</div>
-                </div>
-                <div class="metric-card">
-                  <div class="metric-label">Open Algo Exposure</div>
-                  <div class="metric-val" id="algoExposure">0</div>
-                </div>
-              </div>
-
-              <!-- Main Grid: Strategies table + Risk panel -->
-              <div class="algo-grid">
-
-                <!-- Left column: strategies table + profit-contribution donut -->
-                <div class="algo-left-col">
-
-                  <!-- Active Strategies Table -->
-                  <div class="algo-table-card">
-                    <div class="algo-card-head">
-                      <div class="risk-section-title" style="margin-bottom:0;">⚙ Active Strategies</div>
-                      <span class="algo-head-hint">Expert Advisors</span>
-                    </div>
-                    <div class="algo-table-wrap">
-                      <table>
-                        <thead>
-                          <tr>
-                            <th>Strategy</th>
-                            <th>Symbol / TF</th>
-                            <th>Magic</th>
-                            <th>Status</th>
-                            <th>Trades</th>
-                            <th>Today P&amp;L</th>
-                            <th>Total P&amp;L</th>
-                            <th>Win %</th>
-                            <th>Risk %</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody id="algoTableBody">
-                          <!-- Populated dynamically via algorithm.js -->
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                  <!-- Profit Contribution Donut -->
-                  <div class="algo-donut-card">
-                    <div class="risk-section-title">📊 Profit Contribution by EA</div>
-                    <div class="algo-donut-body">
-                      <div class="algo-donut-wrap">
-                        <canvas id="algoDonutCanvas"></canvas>
-                        <div class="algo-donut-center">
-                          <div class="algo-donut-center-label">Net Total</div>
-                          <div class="algo-donut-center-val" id="algoDonutCenter">+$0.00</div>
-                        </div>
-                      </div>
-                      <div class="algo-donut-legend" id="algoDonutLegend"></div>
-                    </div>
-                  </div>
-
-                </div>
-
-                <!-- Account Risk Panel -->
-                <div class="algo-risk-card">
-                  <div class="risk-section-title">⚠ Account Risk &amp; P&amp;L</div>
-
-                  <!-- Overall risk budget meter -->
-                  <div class="dd-meter-row">
-                    <div class="dd-labels">
-                      <span class="dd-name">Risk Budget Used</span>
-                      <span class="dd-vals"><span class="dd-used" id="algoRiskUsedMeter">0.00%</span> / <span
-                          class="dd-limit">10.00%</span></span>
-                    </div>
-                    <div class="dd-track">
-                      <div class="dd-fill dd-fill-safe" id="algoRiskFill" style="width:0%"></div>
-                    </div>
-                  </div>
-
-                  <!-- Per-EA risk allocation -->
-                  <div class="algo-sub-title">Risk Allocation by EA</div>
-                  <div id="algoAllocList" class="algo-alloc-list"></div>
-
-                  <!-- Exposure by symbol -->
-                  <div class="algo-sub-title">Exposure by Symbol</div>
-                  <div id="algoExposureList" class="algo-expo-list"></div>
-
-                  <!-- Account P&L summary -->
-                  <div class="algo-sub-title">Account P&amp;L</div>
-                  <div class="algo-pnl-summary">
-                    <div class="algo-pnl-item">
-                      <span class="algo-pnl-label">Today</span>
-                      <span class="algo-pnl-val" id="algoAcctToday">+$0.00</span>
-                    </div>
-                    <div class="algo-pnl-item">
-                      <span class="algo-pnl-label">Total</span>
-                      <span class="algo-pnl-val" id="algoAcctTotal">+$0.00</span>
-                    </div>
-                    <div class="algo-pnl-item">
-                      <span class="algo-pnl-label">Floating</span>
-                      <span class="algo-pnl-val" id="algoAcctFloat">+$0.00</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
         </div><!-- end tab-area -->
       </div><!-- end dash-body -->
 
@@ -1668,9 +1145,6 @@
 
   <script src="app.js"></script>
   <script src="positions.js" defer></script>
-  <script src="algorithm.js" defer></script>
-  <script src="signals.js" defer></script>
-  <script src="correlation.js" defer></script>
 </body>
 
 </html>
